@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentxaxssaxxsa</title>
+</head>
+<body>
+
+    <input type="text" id="jason_daty_of_task" placeholder="Data DA Tarefa">
+    <input type="text" id="jason_name_of_task" placeholder="Nome DA Tarefa">
+    <br>
+    <input type="text" id="jason_tyme_of_task" placeholder="Tempo DA Tarefa">
+    <input type="text" id="jason_Infy_of_task" placeholder="Informações DA Tarefa">
+    <br>
+    <input type="text" id="jason_number_of_task" placeholder="numero DA Tarefa">
+    <br>
+    <input type="button" value ="Salvar" onclick="JsonSaveRegister()">
+    <br>
+    <input type="button" value ="deletar" onclick="">
+    <br> 
+    <input type="button" value ="Register_Of_ANO" onclick="JSON_Read_Register()">
+    <br> 
+    <input type="button" id="B_Backup" value ="Backup_Of_DATABASE" onclick="Backup_JsonCreateDatebase()">
+    <br>
+    <input type="button" id="B_Backup" value ="Substituir_Backup" onclick="">
+
+    <h1> Data </h1>
+    <input type="date" type="date" id="daty10" />
+    <br>
+    <input type="button" value ="GYM_OMEGA_LILY = Register_Of_Day" id="GYM_OMEGA_LIA" onclick="JSON_Read_Register_Lily()">
+    <div id ="kuiojhg"> <strong> year month and day </strong> </div>
+    <div id ="uiojhg"> <strong> Year </strong> </div>
+
+    <h1 id="Register_Of_Day"> Register_Of_Day </h1>
+    <br>
+    <br>
+    <h1 id="Register_Of_ANO"> Register_Of_ANO </h1>
+    <br>
+    <br>
+    <br>
+    <h1 id="test"> Teste </h1>
+    <br>
+    <br>
+    <br>
+    <h1 id="test2"> Teste 2 </h1>
+    <br>
+    <br>
+    <h1 id="test3"> Teste 3 </h1>
+
+    <script>
+        
+        /**/
+        /* - - - - - - - - <🐶> : JavaScript JASON CRUD VERSION-ONE: Create,Read,Update,Delet IN Local Storege   - - - -- - - -   */
+        
+        // <🐼> Variaveis 
+
+            // let StoredDataJson = [];
+            // let two_PDO_CON = JSON.parse(PDO_CON);
+            // JSON.parse(StoredDataJson); // ;
+            // StoredDataJson = JSON.parse(PDO_CON);
+
+            
+            
+            // 🐬 < VARIÁVEIS – DATABASE > 
+
+                let Db_Name_Json = "JSON_DataBase";
+                // const TWOO_PDO_CON = [localStorage.getItem(Db_Name_Json)];
+                let PDO_CON = [(JSON.parse(localStorage.getItem(Db_Name_Json)))] ;
+                // PDO_CON = TWOO_PDO_CON ;
+                // (localStorage.getItem(Db_Name_Json)) ; localStorage.getItem(Db_Name_Json) ;
+                
+                let StoredDataJson = [];
+                
+                let JsonRegister_Array = [];
+
+                // StoredDataJson
+                // 1 - one  2 - two 3 - three  4 - four 5 - five 6 - six 7 - seven 8 - eight 9 - nine 10 - ten
+                // DB_VALUEONE ; DB_VALUETWO ; DB_VALUETHREE ; DB_VALUEFOUR ; DB_VALUEFIVE
+                // `${index}` ${DB_VALUEONE} ;  ${DB_VALUETWO} ; ${DB_VALUETHREE} ; ${DB_VALUEFOUR} ; ${DB_VALUEFIVE}  
+                        
+                let pkmx = 10000; let pkmy = 20000;  let pkmz = 30000;  let pkma = 40000; let pkmb = 50000;
+                let pkmc = 60000; let pkmd = 70000;  let pkmg = 80000;
+            
+                const DB_VALUEONE   ='jason_daty_of_tsk'; const DB_VALUETWO   ='jason_namy_of_tsk'; 
+                const DB_VALUETHREE ='jason_time_of_tsk'; const DB_VALUEFOUR  ='jason_Info_of_tsk';
+                const DB_VALUEFIVE  ='jason_numb_of_tsk'; 
+                const DB_VALUESIX   ='jason_Anyy_of_tsk';
+                const DB_VALUESEVEN ='jason_Anyy_of_tsk'; const DB_VALUEEIGTH ='jason_Anyy_of_tsk';
+                const DB_VALUENINE  ='jason_Anyy_of_tsk'; const DB_VALUETEN   ='jason_Anyy_of_tsk';
+
+                // `${index}${pkmx}`   `${index}`
+                // DB_VALUEONE ; DB_VALUETWO ; DB_VALUETHREE ; DB_VALUEFOUR ; DB_VALUEFIVE
+                // `${index}${pkmx}`   `${index}` 
+
+            // 🐬 < / VARIÁVEIS DATABASE >
+
+            // 🐬 < Exemplo >
+
+                let JsonExRegister = {
+
+                    DB_VALUEONE   : "JSON_Date_Of_Task",
+                    DB_VALUETWO   : "JSON_Name_Of_Task",
+                    DB_VALUETHREE : "JSON_Time_Of_Task",
+                    DB_VALUEFOUR  : "JSON_Info_Of_Task",
+                    DB_VALUEFIVE  : "JSON_Numb_Of_Task"
+                
+                };
+
+                let JsonExRegistertwo = JSON.stringify(JsonExRegister);
+
+            // 🐬 < / Exemplo >    
+            
+
+        
+        // </🐼> Variaveis 
+        
+ 
+
+        // <🐼> JSON – Create – DATABASE    / let function  
+             
+            function JsonCreateDatebase () {
+                if( (localStorage.getItem(Db_Name_Json)) === null ) {
+                    
+                    localStorage.setItem(Db_Name_Json,JsonExRegistertwo);
+                    // StoredDataJson.push(localStorage.setItem(Db_Name_Json,JsonExRegistertwo));
+
+                };
+
+                if( ( localStorage.getItem(Db_Name_Json)) != null ) {
+                    
+                    let xtx = 0; let xyy = 0;
+
+                    // console.log(PDO_CON[0][6]);
+                    //🙉 /* 
+                    
+                    // xtx < PDO_CON.length { xtx < PDO_CON.length }
+                    
+                    for( xtx = 0 ; PDO_CON[0][xtx] != null ; xtx++ ) {
+                        
+                        var TWO_PDO_CON = [];
+                        var TWO_PDO_CON = PDO_CON[0][xtx]; 
+                        StoredDataJson[xtx] = TWO_PDO_CON;
+
+                    };
+                    //🙉 */
+                    
+                };
+
+            }; 
+            
+            JsonCreateDatebase ();
+            
+             
+
+        // </🐼> JSON – Create – DATABASE  
+        
+        // <🐼> JSON – Create – Backup_ – DATABASE    
+             
+        function Backup_JsonCreateDatebase () {
+            var B_Backup = document.getElementById(B_Backup);
+            B_Backup.addEventListener("click", function () {
+                let Db_Backup_Name_Json = "Backup_JSON_DataBase";
+                localStorage.setItem(Db_Backup_Name_Json,JSON.stringify(StoredDataJson));
+
+            }); 
+                
+        };
+                 
+
+        // </🐼> JSON – Create – Backup_ – DATABASE  
+
+        
+        
+        // <🐼> : JSON – CRUD – Create  
+
+            function Json_Set_LocalStorage (JsonRegister) {
+                localStorage.setItem(Db_Name_Json,JsonRegister);
+            }; 
+
+            function Json_Set_LocalStorage_Object (JsonRegister) {
+                localStorage.setItem(Db_Name_Json,JSON.stringify(JsonRegister));
+            }; 
+
+            function Json_Create_Crud_Object(JasonRegister) {
+                // localStorage.setItem(Db_Name_Json,JSON.stringify(JsonRegister));
+                // Json_Set_LocalStorage_Object(StoredDataJson);
+                StoredDataJson.push(JasonRegister);
+                Json_Set_LocalStorage_Object(StoredDataJson);
+            };
+
+      
+        // </🐼> JSON – CRUD – Create 
+    
+        // <🐼> : JSON - CRUD -  Read
+
+            // 🐓 🐧  function {}; let  = () =>{}
+            let Json_Get_LocalStorage = () => {
+                // const dadosDoLocalStorage = JSON.parse(localStorage.getItem('JSON_DataBase')); 
+                // const dadosDoLocalStorage = localStorage.getItem('JSON_DataBase');
+                // const twodadosDoLocalStorage = JSON.parse(dadosDoLocalStorage);
+                // return (twodadosDoLocalStorage) ;
+                
+                // const dadosDoLocalStorage = localStorage.getItem(Db_Name_Json);
+                // return dadosDoLocalStorage ? JSON.parse(dadosDoLocalStorage) : [];
+            };
+
+        
+        // </🐼> : JSON – CRUD – Read  
+
+
+        // <🐼> :  JSON – CRUD – Update   
+            function Json_Crud_Update_Object(JasonRegister,index) {
+                StoredDataJson[index] = JasonRegister;
+                Json_Set_LocalStorage_Object(StoredDataJson);
+            };    
+  
+        // </🐼> :  JSON – CRUD – Update  
+
+        
+        // <🐼> JSON – CRUD – DELETE 
+        function Json_Crud_Delet_Object(JasonRegister,index) {
+            // StoredDataJson[index] = JasonRegister;
+            
+            StoredDataJson.splice(index,1);
+            Json_Set_LocalStorage_Object(StoredDataJson);
+        }; 
+        // </🐼> JSON – CRUD – DELETE   
+
+       /* - - - - - - - - </🐶> JavaScript JASON CRUD: Create,Read,Update,Delet IN Local Storege   - - - -- - - -   */
+       
+       
+       /* - - - - - - - - <🐶> JavaScript JASON CRUD EVENTS   - - - -- - - -   */
+
+       /* <🐼> : JSON_Update_Register  */
+        function JSON_creat_BR () {
+          const newRow = document.createElement('br');
+        }; 
+
+        function JSON_Creat_Jasonk () {
+          const newRow = document.createElement('br');
+        }; 
+       
+
+        function JsonSaveRegister () {
+            // if (isValidFields()){};
+            var client = { 
+                DB_VALUEONE   : document.getElementById("jason_daty_of_task").value,
+                DB_VALUETWO   : document.getElementById("jason_name_of_task").value,
+                DB_VALUETHREE : document.getElementById("jason_tyme_of_task").value,
+                DB_VALUEFOUR  : document.getElementById("jason_Infy_of_task").value,
+                DB_VALUEFIVE  : document.getElementById("jason_number_of_task").value
+            };
+            
+            Json_Create_Crud_Object(client);
+            // clearfields
+          
+
+        };
+        
+        // <🐼> JSON – EVENTS – Save – Especial – NOT Used 
+        function Json_Save_Register_Especial (index,pkmx,pkmy,pkmz,pkma,pkmb,pkmc,pkmd) {
+            /* if it works it's perfect XP, obviously the attempts to make it functional, you are not seeing
+               When you have a support team, you can complain why the code is so long and ugly 
+            */
+            
+            // DB_VALUEONE ; DB_VALUETWO ; DB_VALUETHREE ; DB_VALUEFOUR ; DB_VALUEFIVE
+            // `${index}` ${DB_VALUEONE} ;  ${DB_VALUETWO} ; ${DB_VALUETHREE} ; ${DB_VALUEFOUR} ; ${DB_VALUEFIVE}  
+            
+            let Register_Of_ANU = window.document.getElementById("test3");
+
+            // Só Acontecera quando nosso botão for apertado --> index,pkmx,pkmy,pkmz,pkma,pkmb,pkmc
+            var GYM_OMEGA = `Atualizar${index}${pkmc}`;
+            var B_ATUALIZAR = document.getElementById(GYM_OMEGA);
+            B_ATUALIZAR.addEventListener("click", function () {
+                
+                // index += 1;
+                var atualizar = [];
+                var GYM_Cristal = `${DB_VALUEONE}${index}${pkmx}`;
+                var GYM_Gold    = `${DB_VALUETWO}${index}${pkmy}`;
+                var GYM_Silver  = `${DB_VALUETHREE}${index}${pkmz}`;
+                var GYM_Perl    = `${DB_VALUEFOUR}${index}${pkma}`;
+                var GYM_Ruby    = `${DB_VALUEFIVE}${index}${pkmb}`;
+                
+                // `${index}`
+
+                //🙉 /*
+                var client = {
+                    
+                    DB_VALUEONE   : document.getElementById(`${GYM_Cristal}`).value,
+                    DB_VALUETWO   : document.getElementById(`${GYM_Gold}`).value,
+                    DB_VALUETHREE : document.getElementById(`${GYM_Silver}`).value,
+                    DB_VALUEFOUR  : document.getElementById(`${GYM_Perl}`).value,
+                    DB_VALUEFIVE  : document.getElementById(`${GYM_Ruby}`).value
+
+                };
+
+                Json_Create_Crud_Object(client);    
+                //🙉 */
+
+            }); 
+           
+            
+
+        };
+        // </🐼> JSON – EVENTS – Save – Especial
+
+        // <🐼> JSON – EVENTS – Read – ALL
+        function JSON_Read_Register () {
+            
+            //JsonRegister,index
+            // bloco de array
+            // reverter array ${x}
+            // variavel
+            var lily = "ALL";
+            //JSON.parse(StoredDataJson);    
+            // if (isValidFields()){};
+            //let lily2 = Json_Get_LocalStorage() ;
+            // lily[index] = 0 ;       ${client.json_name_of_task}
+            // --------------------
+            // var client = JSON.stringify(lily[0].value);
+            let Register_Of_Day = window.document.getElementById("Register_Of_Day");
+            let Register_Of_ANO = window.document.getElementById("Register_Of_ANO");
+            // DB_VALUEONE ; DB_VALUETWO ; DB_VALUETHREE ; DB_VALUEFOUR ; DB_VALUEFIVE
+            // `${index}` ${DB_VALUEONE} ;  ${DB_VALUETWO} ; ${DB_VALUETHREE} ; ${DB_VALUEFOUR} ; ${DB_VALUEFIVE}  
+            
+             
+            if ( lily == "ALL") { 
+                StoredDataJson.forEach(
+                    function Me_Mostre_Tudo(item,index) {
+                        
+                        Register_Of_ANO.insertAdjacentHTML('beforeend',
+                        `
+                            <p> ${lily} ${pkmg} b propiedade  a  </p>
+                            <input type="text" id="${DB_VALUEONE}${index}${pkmx}" value="${item.DB_VALUEONE}">
+                            <input type="text" id="${DB_VALUETWO}${index}${pkmy}" value="${item.DB_VALUETWO}">
+                            <input type="text" id="${DB_VALUETHREE}${index}${pkmz}" value="${item.DB_VALUETHREE}">
+                            <input type="text" id="${DB_VALUEFOUR}${index}${pkma}" value="${item.DB_VALUEFOUR}">
+                            <input type="text" id="${DB_VALUEFIVE}${index}${pkmb}" value="${item.DB_VALUEFIVE}">
+                            <br> 
+                            <input type="button" id="Atualizar${index}${pkmc}" value ="Atualizar" onclick="Json_Update_Register_Especial(${index},${pkmx},${pkmy},${pkmz},${pkma},${pkmb},${pkmc},${pkmd} )" >
+                            <br> 
+                            <input type="button" id="Delet${index}${pkmd}" value ="Deletar" onclick="Json_Delet_Register_Especial(${index},${pkmx},${pkmy},${pkmz},${pkma},${pkmb},${pkmc},${pkmd} )">
+                        
+                        `);
+                        pkmx += 1; pkmy += 1; pkmz += 1; pkma += 1; pkmb += 1; pkmc += 1; pkmd += 1; pkmg += 1;
+
+                    }
+                
+                ); 
+            };
+            
+            if ( lily !="ALL" ) { 
+                Register_Of_Day.insertAdjacentHTML('beforeend',`<p> ${lily2[0]} propiedade  a  </p>`);
+                JsonRegister_Array[0][1] = (lily[0].json_name_of_task); 
+                JsonRegister_Array[0][2] = (lily[0].json_daty_of_task);
+                JsonRegister_Array[0][3] = (lily[0].json_info_of_task);
+                JsonRegister_Array[0][4] = (lily[0].json_daty_of_task);
+            }
+
+
+        };
+        
+        // JSON_Read_Register (); 
+        // </🐼> JSON – EVENTS – Read – ALL
+
+
+        // <🐼> JSON – EVENTS – Read – Day 
+        function JSON_Read_Register_Lily (lily) {
+            
+
+            let Register_Of_Day = window.document.getElementById("Register_Of_Day");
+            // DB_VALUEONE ; DB_VALUETWO ; DB_VALUETHREE ; DB_VALUEFOUR ; DB_VALUEFIVE
+            // `${index}` ${DB_VALUEONE} ;  ${DB_VALUETWO} ; ${DB_VALUETHREE} ; ${DB_VALUEFOUR} ; ${DB_VALUEFIVE}  
+            
+            let Register_Of_ANU = window.document.getElementById("test3");
+            /* 2023-12-13 */ 
+            let daty4 = window.document.getElementById("daty10").value ;   
+            kuiojhg.innerText = ` ${daty4} ` ;
+            /* 2023 */  
+            let daty2 = window.document.getElementById("daty10") ; 
+            let daty3 = Number.parseInt( daty2.value );  
+            uiojhg.innerText = ` ${daty3} `; 
+            
+            lily = `${daty4}` ; 
+            
+            // Só Acontecera quando nosso botão for apertado --> index,pkmx,pkmy,pkmz,pkma,pkmb,pkmc
+            // var GYM_OMEGA_LIA = `Atualizar${index}${pkmc}`; 
+            // StoredDataJson[xtx]
+            var B_ATUALIZAR = document.getElementById("GYM_OMEGA_LIA");
+            B_ATUALIZAR.addEventListener("click", function () {
+                StoredDataJson.forEach(
+                    function Me_Mostre_Day(item,index) {
+                        if( item.DB_VALUEONE == lily ) {
+                            Register_Of_Day.insertAdjacentHTML('beforeend',
+                            `
+                                <p> ${lily} ${pkmg} b propiedade  a  </p>
+                                <input type="text" id="${DB_VALUEONE}${index}${pkmx}" value="${item.DB_VALUEONE}">
+                                <input type="text" id="${DB_VALUETWO}${index}${pkmy}" value="${item.DB_VALUETWO}">
+                                <input type="text" id="${DB_VALUETHREE}${index}${pkmz}" value="${item.DB_VALUETHREE}">
+                                <input type="text" id="${DB_VALUEFOUR}${index}${pkma}" value="${item.DB_VALUEFOUR}">
+                                <input type="text" id="${DB_VALUEFIVE}${index}${pkmb}" value="${item.DB_VALUEFIVE}">
+                                <br> 
+                                <input type="button" id="Atualizar${index}${pkmc}" value ="Atualizar" onclick="Json_Update_Register_Especial(${index},${pkmx},${pkmy},${pkmz},${pkma},${pkmb},${pkmc},${pkmd} )" >
+                                <br> 
+                                <input type="button" id="Delet${index}${pkmd}" value ="Deletar" onclick="Json_Delet_Register_Especial(${index},${pkmx},${pkmy},${pkmz},${pkma},${pkmb},${pkmc},${pkmd} )">
+                        
+                            `);
+                            pkmx += 1; pkmy += 1; pkmz += 1; pkma += 1; pkmb += 1; pkmc += 1; pkmd += 1; pkmg += 1;
+                        };
+
+                        
+                    }
+                
+                ); 
+            
+            }); 
+
+
+        };
+
+       // </🐼>  JSON – EVENTS – Read – Day 
+        
+
+       
+        // - - - - - - aaa- - - - - - - - 
+
+
+        function Json_Update_Register_Especial (index,pkmx,pkmy,pkmz,pkma,pkmb,pkmc,pkmd) {
+            /* if it works it's perfect XP, obviously the attempts to make it functional, you are not seeing
+               When you have a support team, you can complain why the code is so long and ugly 
+            */
+            
+            // DB_VALUEONE ; DB_VALUETWO ; DB_VALUETHREE ; DB_VALUEFOUR ; DB_VALUEFIVE
+            // `${index}` ${DB_VALUEONE} ;  ${DB_VALUETWO} ; ${DB_VALUETHREE} ; ${DB_VALUEFOUR} ; ${DB_VALUEFIVE}  
+            
+            let Register_Of_ANU = window.document.getElementById("test3");
+
+            // Só Acontecera quando nosso botão for apertado --> index,pkmx,pkmy,pkmz,pkma,pkmb,pkmc
+            var GYM_OMEGA = `Atualizar${index}${pkmc}`;
+            var B_ATUALIZAR = document.getElementById(GYM_OMEGA);
+            B_ATUALIZAR.addEventListener("click", function () {
+                
+                // index += 1;
+                var atualizar = [];
+                var GYM_Cristal = `${DB_VALUEONE}${index}${pkmx}`;
+                var GYM_Gold    = `${DB_VALUETWO}${index}${pkmy}`;
+                var GYM_Silver  = `${DB_VALUETHREE}${index}${pkmz}`;
+                var GYM_Perl    = `${DB_VALUEFOUR}${index}${pkma}`;
+                var GYM_Ruby    = `${DB_VALUEFIVE}${index}${pkmb}`;
+                
+                // `${index}`
+
+                //🙉 /*
+                var client = {
+                    
+                    DB_VALUEONE   : document.getElementById(`${GYM_Cristal}`).value,
+                    DB_VALUETWO   : document.getElementById(`${GYM_Gold}`).value,
+                    DB_VALUETHREE : document.getElementById(`${GYM_Silver}`).value,
+                    DB_VALUEFOUR  : document.getElementById(`${GYM_Perl}`).value,
+                    DB_VALUEFIVE  : document.getElementById(`${GYM_Ruby}`).value
+
+                };
+
+                Json_Crud_Update_Object(client,index);    
+                //🙉 */
+
+            }); 
+           
+            
+
+        };
+
+        function Json_Delet_Register_Especial (index,pkmx,pkmy,pkmz,pkma,pkmb,pkmc,pkmd) {
+           
+            let Register_Of_ANU = window.document.getElementById("test3");
+
+            // Só Acontecera quando nosso botão for apertado --> index,pkmx,pkmy,pkmz,pkma,pkmb,pkmc
+            var GYM_OMEGA = `Delet${index}${pkmd}`;
+            var B_ATUALIZAR = document.getElementById(GYM_OMEGA);
+            B_ATUALIZAR.addEventListener("click", function () {
+                
+                // index += 1;
+                var atualizar = [];
+                var GYM_Cristal = `${DB_VALUEONE}${index}${pkmx}`;
+                var GYM_Gold    = `${DB_VALUETWO}${index}${pkmy}`;
+                var GYM_Silver  = `${DB_VALUETHREE}${index}${pkmz}`;
+                var GYM_Perl    = `${DB_VALUEFOUR}${index}${pkma}`;
+                var GYM_Ruby    = `${DB_VALUEFIVE}${index}${pkmb}`;
+
+
+                var client = {
+                    
+                    DB_VALUEONE   : document.getElementById(`${GYM_Cristal}`).value,
+                    DB_VALUETWO   : document.getElementById(`${GYM_Gold}`).value,
+                    DB_VALUETHREE : document.getElementById(`${GYM_Silver}`).value,
+                    DB_VALUEFOUR  : document.getElementById(`${GYM_Perl}`).value,
+                    DB_VALUEFIVE  : document.getElementById(`${GYM_Ruby}`).value
+
+                };
+
+                Json_Crud_Delet_Object(client,index);    
+                //🙉 */
+
+            }); 
+           
+            
+
+        };
+
+        // - - - - - - - - - - - - - -  
+
+        
+        // </🐼> : JSON_Save_Register  
+
+        let JSON_Updatee_Register = () => {
+          
+
+        };
+
+       /* - - - - - - - - </🐶> JavaScript JASON CRUD Events   - - - -- - - -   */
+       
+        /* - - - - - - - - <🐶> Progama   - - - - - - - -   */
+        
+        /*
+        function Register_Of_Day(Db_Name_Jsondd) {
+            // var JSON_Read_Register3 = Json_Get_LocalStorage() ;
+
+            for( x=0 ; x<=10 ; x++ ) {
+                var Register_Of_Day = window.document.getElementById("Register_Of_Day");
+                // var JSON_Read_Register2 = JSON_Read_Register (Db_Name_Jsondd,JsonRegister,index);
+                Register_Of_Day.insertAdjacentHTML('beforeend',
+                    `<br> <input type="text" name="a" id="x${x}"> ${x} ${JSON_Read_Register2.json_name_of_task1} `
+                
+                )
+
+            };    
+             
+        };
+        */
+
+        /* - - - - - - - - </🐶> Progama   - - - - - - - -   */
+    
+
+
+    </script>    
+</body>
+</html>
